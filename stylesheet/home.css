@@ -1,0 +1,75 @@
+body {
+    background: url('../images/back3.jpg') no-repeat center center;
+    /*background image on body*/
+    background-size: 100% 100%;
+    /*background size to coverup screen*/
+    min-height: 30rem;
+}
+
+/*news block*/
+.news {
+    /*    display: flex;*/
+    text-align: center;
+    /*centering the text*/
+    margin-bottom: 1%;
+    /*    background-color: aqua;*/
+    display: block;
+    /*display news as a block*/
+    height: 100%;
+
+}
+
+/*content under the news block*/
+.news .content {
+    position: relative;
+    /*position to be relative to parent layout*/
+    /*
+                //margin-left: 42%;
+                //width: 50%;
+*/
+    height: 20vw;
+    overflow-y: scroll;
+    /*scroll if y axis overflows*/
+    text-align: justify;
+    /*align to be justify*/
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 1vw;
+    /*    scollbar-color:red yellow;*/
+
+}
+
+/*child news*/
+.cnews {
+    /*    border-style: groove;*/
+    overflow: auto;
+    /*adjust block*/
+}
+
+/*runs for all even cnews*/
+.cnews:nth-child(even) iframe {
+    float: right;
+    /*float Iframe of cnews to right*/
+}
+
+/*runs for all odd cnews*/
+.cnews:nth-child(odd) iframe {
+    float: left;
+    /*float Iframe of cnews to left*/
+
+}
+
+/*runs for all iframe in news block*/
+.news iframe {
+    position: relative;
+    /*set position to be relative*/
+    /*                //float: left;*/
+
+    width: 30%;
+    /*occupy width to be 30% of it's parent*/
+    height: 20vw;
+    border-radius: 10px;
+    border: 2px solid #000;
+    /*create border with 2px solid*/
+
+}

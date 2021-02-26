@@ -1,0 +1,70 @@
+/*            Main Div holding all information
+              Setting position on the screen*/
+div.mainDiv {
+    //position: absolute;  
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    width: 80%;
+    margin: auto;
+    color: aliceblue;
+    height: 100%;
+    background-color: darkslategray;
+    border-radius: 10px;
+    padding-bottom: 5%;
+}
+
+body {
+    text-align: center;
+    font-size: 1.2vw;
+    background-color: black;
+    color: white;
+
+
+}
+
+/*            Main Headind's text style*/
+h1.mainHeading {
+    text-align: center;
+    font-family: serif;
+    font-size: 3vw;
+    margin-top: 0px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px;
+    /*                background-color: antiquewhite;*/
+    background-color: firebrick;
+
+    text-shadow: 1px 1px 1px red,
+        2px 2px 1px red;
+}
+
+/*            Setting grid layout*/
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+/*            Setting child layout of grid layout*/
+.child {
+    text-align: center;
+}
+
+h1#name {
+    font-size: 3vw;
+    font-family: Georgia;
+
+    color: cadetblue;
+    font-stretch: expanded;
+}
+
+#description {
+    font-size: 1.3vw;
+    font-family: sans-serif;
+    margin-left: 2%;
+    margin-right: 2%;
+    justify-content: space-between;
+
+}

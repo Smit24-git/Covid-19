@@ -1,0 +1,59 @@
+body {
+    /*             background-color: rgb(21,21,21);*/
+    background: url('../images/assessmentback.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    min-height: 30rem;
+
+}
+
+.main {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-size: 1.2vw;
+    /*                text-align: justify;*/
+}
+
+/*            applies on ul but not to .nav block*/
+ul:not(.nav) {
+    width: 80%;
+    text-align: left;
+    margin: auto;
+}
+
+fieldset {
+    padding: 10px;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+/*            on only one div which have id name assessmentQuestionDiv*/
+div#assessmentQuestionDiv {
+    margin: 20px;
+    text-align: center;
+
+    /*                background-color: darkslategray;*/
+    width: 95%;
+    height: 100%;
+}
+
+/*            all child div of div having id assessmentQuestionDiv*/
+div#assessmentQuestionDiv > div {
+    border: dotted;
+    padding: 3vw;
+    display: inline-block;
+    width: 70%;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+/*            on st id*/
+#st {
+    margin-top: 10px;
+    width: 40%;
+    font-size: 1.2vw;
+    text-align: center;
+}

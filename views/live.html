@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Live Data</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="corona Live Information">
+        <meta name="keywords" content="covid-19,corona,Live,Data,Informaion">
+        <meta name="author" content="SmitShah">
+
+        <link rel="stylesheet" href="../stylesheet/styles.css"/>
+        <link rel="stylesheet" href="../stylesheet/live.css"/>
+    </head>
+    <style>
+        
+    </style>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            fetch("https://api.apify.com/v2/acts/lukass~covid-cad/runs/last/dataset/items?token=As8uocE7YSQZFrT4FXKruDcyA")
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data);
+                if(data.length==0){
+                    alert("Unfortunetely, Information is not available at this moment.. Please try again later.");
+                    return;
+                }
+                
+                console.log(data[data.length-1].infectedByRegion);
+                for(var i=0;i<data[data.length-1].infectedByRegion.length;i++){
+                    var region=data[data.length-1].infectedByRegion[i]
+                    switch(region.region){
+                        case "Alberta":
+                            $("#al_i").text(region.infectedCount);
+                            $("#al_d").text(region.deceasedCount);
+                            
+                            break;
+                        case "British Columbia":
+                            $("#bc_i").text(region.infectedCount);
+                            $("#bc_d").text(region.deceasedCount);
+                            break;
+                        case "Manitoba":
+                            $("#mt_i").text(region.infectedCount);
+                            $("#mt_d").text(region.deceasedCount);
+                            break;
+                        case "New Brunswick":
+                            $("#nb_i").text(region.infectedCount);
+                            $("#nb_d").text(region.deceasedCount);
+                            break;
+                        case "Ontario":
+                            $("#on_i").text(region.infectedCount);
+                            $("#on_d").text(region.deceasedCount);
+                            break;
+                        case "Quebec":
+                            $("#qu_i").text(region.infectedCount);
+                            $("#qu_d").text(region.deceasedCount);
+                            break;
+                        case "Nova Scotia":
+                            $("#ns_i").text(region.infectedCount);
+                            $("#ns_d").text(region.deceasedCount);
+                            break;
+                        case "Prince Edward Island":
+                            $("#pei_i").text(region.infectedCount);
+                            $("#pei_d").text(region.deceasedCount);
+                            break;
+                        case "Saskatchewan":
+                            $("#sw_i").text(region.infectedCount);
+                            $("#sw_d").text(region.deceasedCount);
+                            break;
+                        case "Newfoundland and Labrador":
+                            $("#nal_i").text(region.infectedCount);
+                            $("#nal_d").text(region.deceasedCount);
+                            break;
+                        case "Yukon":
+                            $("#yk_i").text(region.infectedCount);
+                            $("#yk_d").text(region.deceasedCount);
+                            break;
+                        case "Northwest Territories":
+                            $("#nt_i").text(region.infectedCount);
+                            $("#nt_d").text(region.deceasedCount);
+                            break;
+                        case "Nunavut":
+                            $("#nv_i").text(region.infectedCount);
+                            $("#nv_d").text(region.deceasedCount);
+                            break;
+                    }
+
+                }
+                
+                
+            })
+            
+        });
+    </script>
+    <body>
+        <div class="wrapper" style="background: url('../images/coronaliveback.jpg') no-repeat center center;background-size: 100% 109%;">
+            <nav>
+                <img class="logo" src="../images/logo.png" alt="logo"/>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutcorona.html">About corona</a></li>
+                    <li><a href="#">Live Stats</a></li>
+                    <li><a href="prevention.html">Prevention</a></li>
+                    <li><a href="assessment.html">Self-Assessment</a></li>
+<!--                    <li><a href="#">Global News</a></li>-->
+                    
+                </ul>
+            </nav>
+            <div class="section">
+
+            </div>
+        </div>
+        <div class="main">
+            <h1 style="text-shadow: 2px 3px 20px red;">Live Data:</h1>
+            <input list="states" id="state" name="state" onkeyup="search(this.value)"/>
+            <datalist id="states" >
+                <option value="Alberta">
+                <option value="British Columbia">
+                <option value="Manitoba">
+                <option value="New Brunswick">
+                <option value="Ontario">
+                <option value="Quebec">
+                <option value="Nova Scotia">
+                <option value="Price Edward Island">
+                <option value="Saskatchewan">
+                <option value="Newfoundland and Labrador">
+            </datalist>
+            <div class="provinces" id="provinces">
+                <div class="prov1" name="Alberta">
+                    <header><h2>Alberta</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="al_i"></td><td id="al_d"></td></tr></table></center>
+                </div>
+                <div class="prov2" name="British Columbia">
+                    <header><h2>British Columbia</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="bc_i"></td><td id="bc_d"></td></tr></table></center>
+                </div>
+                <div class="prov3" name="Manitoba">
+                    <header><h2>Manitoba</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="mt_i"></td><td id="mt_d"></td></tr></table></center>
+                </div>
+                <div class="prov4" name="New Brunswick">
+                    <header><h2>New Brunswick</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="nb_i"></td><td id="nb_d"></td></tr></table></center>
+                </div>
+                <div class="prov5" id="ontario" name="Ontario">
+                    <header><h2>Ontario</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="on_i"></td><td id="on_d"></td></tr></table></center>
+                </div>
+                <div class="prov6" name="Quebec">
+                    <header><h2>Quebec</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="qu_i"></td><td id="qu_d"></td></tr></table></center>
+                </div>
+                <div class="prov7" name="Nova Scotia">
+                    <header><h2>Nova Scotia</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="ns_i"></td><td id="ns_d"></td></tr></table></center>
+                </div>
+                <div class="prov8" name="Prince Edward Island">
+                    <header><h2>Prince Edward Island</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="pei_i"></td><td id="pei_d"></td></tr></table></center>
+                </div>
+                <div class="prov9" name="Saskatchewan">
+                    <header><h2>Saskatchewan</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="sw_i"></td><td id="sw_d"></td></tr></table></center>
+                </div>
+                <div class="prov10" name="Newfoundland and Labrador">
+                    <header><h2>Newfoundland and Labrador</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="nal_i"></td><td id="nal_d"></td></tr></table></center>
+                </div>
+                <div class="te1" name="Yukun">
+                    <header><h2>Yukun</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="yk_i"></td><td id="yk_d"></td></tr></table></center>
+                </div>
+                <div class="te2" name="Northwest Territories">
+                    <header><h2>Northwest Territories</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="nt_i"></td><td id="nt_d"></td></tr></table></center>
+                </div>
+                <div class="te3" name="Nunavut">
+                    <header><h2>Nunavut</h2></header>
+                    <center><table><tr><th>Infected</th><th>Death</th></tr><tr><td id="nv_i"></td><td id="nv_d"></td></tr></table></center>
+                </div>
+            </div>
+            
+        </div>
+        
+         <footer>
+            <p> Thank You For Vising Us...</p>
+        </footer>
+        <script>
+            function search(value){
+                //var value=document.getElementById("state").val;
+                console.log(value);
+                var div=document.getElementById("provinces");
+                var provs=div.children;
+                for(var i=0;i<provs.length;i++){
+                    console.log(provs[i].getAttribute("name"));
+                    if(provs[i].getAttribute("name").toLowerCase().includes(value.toLowerCase())){
+                        provs[i].style.display="initial";
+                        
+                    }else{
+                        provs[i].style.display="none";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

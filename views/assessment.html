@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Assessment</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Assessment">
+        <meta name="keywords" content="covid-19,corona,assessment">
+        <meta name="author" content="Smit Shah">
+
+        <link rel="stylesheet" href="../stylesheet/styles.css"/>
+        <link rel="stylesheet" href="../stylesheet/assessment.css"/>
+<!--        Add JQuery...-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--        JQuery scripting(Just learning :) )-->
+        <script type="text/javascript" src="../js/selfAssessmentJQuery.js"></script>
+        <style>
+            
+        </style>
+        
+        <script>
+            function show(){
+                var sh=document.getElementById("show").val;
+                if(sh==="Show"){
+                    
+                    document.getElementById("navUl").style.display="initial";
+                    document.getElementById("show").val="Hide";
+                }else{
+                    document.getElementById("navUl").style.display="none";
+                    document.getElementById("show").val="Show";
+                }
+            }
+        </script>
+        
+    </head>
+    
+    <body>
+        <div class="wrapper" style="background: url('../images/covidassessment.jpg') no-repeat center center;background-size: 100% 100%;">
+            <nav>
+                <img class="logo" src="../images/logo.png" alt="logo"/>
+                <ul class="nav">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutcorona.html">About corona</a></li>
+                    <li><a href="live.html">Live Stats</a></li>
+                    <li><a href="prevention.html">Prevention</a></li>
+                    <li><a href="#">Self-Assessment</a></li>
+<!--                    <li><a href="#">Global News</a></li>-->
+                    
+                </ul>
+            </nav>
+<!--
+            <div class="section">
+            </div>
+-->
+        </div>
+        <div class="main">
+            <header><h1 style="font-size: 2vw;color: darkorange">Self-Assessment Tool...</h1></header>
+                <p>
+                This self-assessment tool will help determine whether you may need further assessment or testing for COVID-19. You can complete this assessment for yourself, or on behalf of someone else, if they are unable to.</p>
+
+                <h2>Who should be tested for COVID-19?</h2>
+
+                
+                <ul >
+                    <caption>People with respiratory symptoms who are:</caption>
+                    <li>Hospitalized, or likely to be hospitalized</li>
+                    <li>Health Care Workers</li>
+                    <li>Residents of long term care facilities</li>
+                    <li>Part of an investigation of a cluster or outbreak</li>
+                    
+                </ul>
+
+                <h2>Who does not need to be tested for COVID-19?</h2>
+                
+                <ul>
+                    <li>People without symptoms</li>
+                    <li>Patients with mild respiratory symptoms who can be managed at home, including returning travellers with an onset of illness within 14 days of return to Canada</li>
+                </ul>
+            
+                   <a href="assessmentReport.html">Show Assessment Reports</a>
+                <br><br>
+               <form action="../views/HealthReport.html" >
+                    <center>
+                        <fieldset style="width: 60%;">
+                            
+                            <legend >Personal Info</legend>
+                            <table id="personalInfoTable" style="text-align: left">
+                                <tr>
+                                    <th>Enter Your Name:</th>
+                                    <td><input type="text" id="name" name="name"  required/></td>
+                                </tr>
+                                <tr>
+                                    <th>Enter Your BirthDate:</th>
+                                    <td><input type="date" id="bdate" name="bdate" required/></td>
+                                </tr>
+                                <tr>
+                                    <th>Enter Your Phone no.:</th>
+                                    <td><input type="text" id="phno" name="phno" maxlength="14" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  required /></td>
+                                </tr>
+                                <tr>
+                                    <th>Email Id:</th>
+                                    <td><input type="email" id="email" name="email" required/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <th>Gender:</th>
+                                    <td><input type="radio" name="gender" value="male" id="male" checked><label for="male">male</label>
+                                        <input type="radio" name="gender" value="female" id="female"><label for="female">female</label> </td>
+                                </tr>
+                                
+                                <tr>
+                                    
+                                    <td colspan="2" ><center><input type="submit" style="padding: 5px 25px 5px 25px" id="btn" value="Start Assessment"></center></td>
+                                        
+                                </tr>
+                            </table>
+                            
+                            <input type="button" style="background: none; border: none;color: white;" id="showTableLink"/>
+
+                        </fieldset>
+                    </center>
+                   <div id="assessmentQuestionDiv">
+                        <br/>
+                        <div>
+                            <b><label for="st">Which Province or Territory are you currently located in?</label></b><br/>
+                            <input id="st" list="states" />
+                              <datalist id="states" >
+                                <option value="Alberta">
+                                <option value="British Columbia">
+                                <option value="Manitoba">
+                                <option value="New Brunswick">
+                                <option value="Ontario">
+                                <option value="Quebec">
+                                <option value="Nova Scotia">
+                                <option value="Price Edward Island">
+                                <option value="saskatchewan">
+                                <option value="Newfoundland and Labrador">
+                              </datalist>
+                        </div>
+                        
+                        <br/><br/>
+                        
+                        <div>
+                            <b><label>Are you experiencing any of the following?</label></b><br/>
+                            <ul type="none">
+                                <li>
+                                    <input type="checkbox" id="ch1" name="severe" value="severe difficulty breathing (e.g. struggling to breathe or speaking in single words)"/><label for="ch1" >Severe difficulty breathing (e.g. struggling to breathe or speaking in single words)</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch2" name="severe" value="Severe chest pain"/><label for="ch2" >Severe chest pain</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch3" name="severe" value="Having a very hard time waking up"/><label for="ch3" >Having a very hard time waking up</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch4" name="severe" value="Feeling confused"/><label for="ch4" >Feeling confused</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch5" name="severe" value="Losing consciousness"/><label for="ch5" >Losing consciousness</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <br/><br/>
+                        
+                        <div>
+                            <b><label>Are you experiencing any of the following?</label></b><br/>
+                            <ul type="none">
+                                <li>
+                                    <input type="checkbox" id="ch11" name="mild" value="Mild to moderate shortness of breath"/><label for="ch11" >Mild to moderate shortness of breath</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch12" name="mild" value="Inability to lie down because of difficulty breathing"/><label for="ch12" >Inability to lie down because of difficulty breathing</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch13" name="mild" value="Chronic health conditions that you are having difficulty managing because of difficulty breathing"/><label for="ch13" >Chronic health conditions that you are having difficulty managing because of difficulty breathing</label>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <br/><br/>
+                        
+                        <div >
+                            <b><label>Are you experiencing any of the following?</label></b><br/>
+                            <ul type="none" >
+                                <li>
+                                    <input type="checkbox" id="ch21" name="normal" value="Fever"/><label for="ch21" >Fever</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch22" name="normal" value="Cough"/><label for="ch22" >Cough</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch23" name="normal" value="Sneezing"/><label for="ch23" >Sneezing</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="ch24" name="normal" value="Sore throat"/><label for="ch24" >Sore throat</label>
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                        <br/><br/>
+                        
+                        <div >
+                            <b><label style="font-size: 1.2vw; display: block;margin-right: 15%;margin-left: 15%">Have you travelled to any countries outside Canada (including the United States) within the last 14 days? Travel includes passing through an airport.</label></b><br/>
+                            <center>
+                                <input type="radio" name="travel" id="travel_yes" value="Yes"><label  for="travel_yes">Yes</label>
+                                <input type="radio" name="travel" id="travel_no" value="No" checked><label for="travel_no">No</label>
+                            </center>
+                        </div>
+                        
+                        <br/><br/>
+                        
+                        <div>
+                            <b><label >Did you provide care or have close contact with a person with COVID-19 (probable or confirmed) while they were ill (cough, fever, sneezing, or sore throat)?</label></b><br/>
+                            <p><b>A close contact is defined as a person who:</b></p>
+
+                            <ul>
+                                <li>Provided care for the individual, including healthcare workers, family members or other caregivers, or who had other similar        close physical contact without consistent and appropriate use of personal protective equipment; or</li>
+                                <li>
+                                    Lived with or otherwise had close prolonged contact (within 2 metres) with the person while they were infectious; or
+                                </li>
+                                <li>
+                                    Had direct contact with infectious bodily fluids of the person (e.g. was coughed or sneezed on) while not wearing recommended personal protective equipment.
+                                </li>
+                            </ul>
+
+                            <center>
+                                <input type="radio" name="care" id="care_yes" value="Yes"><label  for="care_yes">Yes</label>
+                                <input type="radio" name="care" id="care_no" value="No" checked><label for="care_no">No</label>
+                            </center>
+                        </div>
+                        <br/><br/>
+                        
+                        <div>
+                            <b><label >Did you have close contact with a person who travelled outside of Canada in the last 14 days who has become ill (cough, fever, sneezing, or sore throat)?</label></b><br/>
+                            <p><b>A close contact is defined as a person who:</b></p>
+
+                            <ul>
+                                <li>Provided care for the individual, including healthcare workers, family members or other caregivers, or who had other similar close physical contact without consistent and appropriate use of personal protective equipment; or</li>
+                                <li>
+                                    Lived with or otherwise had close prolonged contact (within 2 metres) with the person while they were infectious; or
+                                </li>
+                                <li>
+                                    Had direct contact with infectious bodily fluids of the person (e.g. was coughed or sneezed on) while not wearing recommended personal protective equipment.
+                                </li>
+                            </ul>
+
+                            <center>
+                                <input type="radio" name="contact" id="contact_yes" value="Yes"><label  for="contact_yes" >Yes</label>
+                                <input type="radio" name="contact" id="contact_no" value="No" checked><label for="contact_no">No</label>
+                            </center>
+                        </div>
+                        
+                        <br/><br/>
+
+                        <input type="submit" id="assessment" value="View Result" style="font-size: 1.3vw; padding: 5px 40px 5px 40px;border-radius: 10px" />
+                        
+                        <br/><br/>
+                    </div>
+                </form>
+<!--        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+        </div>
+        <footer>
+            <p>Thank You For Visiting Us...</p>
+        </footer>
+    </body>
+</html>

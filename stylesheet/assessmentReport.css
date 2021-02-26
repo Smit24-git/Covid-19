@@ -1,0 +1,26 @@
+ body {
+     /*             background-color: rgb(21,21,21);*/
+     background: url('../images/assessmentback.jpg') no-repeat center center;
+     background-size: 100% 100%;
+     min-height: 40rem;
+     text-align: center;
+
+ }
+
+ table {
+     border-collapse: collapse;
+     width: 100%;
+ }
+
+ th,
+ td {
+     padding: 8px;
+     text-align: left;
+     border-bottom: 1px solid #ddd;
+ }
+
+ /*tr hover but not with .tablehead class*/
+ tr:hover:not(.tablehead) {
+     background-color: #f5f5f5;
+     color: black;
+ }

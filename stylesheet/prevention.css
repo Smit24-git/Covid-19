@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(1, 31, 57);
+    background-size: 100% 100%;
+    min-height: 30rem;
+    font-size: 1.2vw;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/*        s1 represents section which wraps img and content related prevention measures*/
+.s1 img {
+    float: left;
+    /*float left*/
+    width: 20%;
+}
+
+/*inner divs of section*/
+.s1 .innerDiv {
+    padding-left: 20%;
+}
+
+/*        works on all sections*/
+.s1 {
+    overflow: auto;
+    margin-top: 2vw;
+}
+
+.main {
+    margin: 5% 10% 5% 10%;
+}
+
+/*        for extea videos*/
+.vds {
+    margin-top: 2vw;
+}
+
+/*        iframe which shows youtube video*/
+iframe {
+    width: 40%;
+    height: 20vw;
+    margin: 2vw;
+}

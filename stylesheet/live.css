@@ -1,0 +1,84 @@
+body {
+    background-color: rgb(0, 31, 36);
+    font-size: 1.2vw;
+}
+
+.main {
+    text-align: center;
+
+}
+
+/*        stype on list state */
+#state {
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 40%;
+    font-size: 1.5vw;
+    text-align: center;
+
+}
+
+/*        all provinces*/
+.provinces {
+    display: grid;
+    /*creates grid*/
+    grid-template-columns: auto auto auto;
+    /*grid of n*3 (3 columns) in each row*/
+    padding: 10px;
+}
+
+/*        applies on all elements within provinces*/
+.provinces > * {
+    background-color: dimgrey;
+    margin: 10px;
+}
+
+table {
+    /*            //border-style: dashed;*/
+
+}
+
+/*        style on table elements*/
+table tr td,
+th {
+    //border-style: dotted;
+    text-align: center;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+
+
+
+}
+
+table tr th {
+    border-bottom: dotted;
+    /*bottom border of th to be dotted style*/
+}
+
+/*        applies on odd child of td and th of table*/
+table tr td:nth-child(odd),
+th:nth-child(odd) {
+    border-right: dotted;
+    /*right side of the border to be dotted style*/
+
+}
+
+/*        applies when screen size is less tham 600px*/
+@media only screen and (max-width: 600px) {
+    .provinces {
+        grid-template-columns: auto auto;
+        /*grid column= 2*/
+        /*                margin: auto;*/
+    }
+}
+
+/*        applies when screen size is less tham 400px*/
+@media only screen and (max-width: 400px) {
+    .provinces {
+        grid-template-columns: auto;
+        /*grid column= 1*/
+        /*                margin: auto;*/
+    }
+}

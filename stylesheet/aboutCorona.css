@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(1, 10, 19);
+    background-size: 100% 100%;
+    min-height: 30rem;
+    counter-reset: section;
+    /*reset counter*/
+    line-height: 1.4;
+    text-align: justify;
+    font-size: 1.2vw;
+}
+
+/*before h3*/
+h3::before {
+    counter-increment: section;
+    /*increment counter*/
+    content: counter(section) ". ";
+}
+
+/*on section element*/
+section {
+    width: 70%;
+    margin: auto;
+    /*auto margin to align section center*/
+    padding: 2% 5% 2% 5%;
+    border-radius: 20px;
+    margin-top: 2%;
+    background-color: dimgrey;
+}
+
+/*section class*/
+.section {
+    width: 100%;
+    margin-top: 0;
+}
+
+.feature {
+    margin-top: 0;
+}
+
+/*style to button of ul li*/
+.feature ul li button {
+    width: 20vw;
+    margin: 5px;
+    font-size: 1.2vw;
+    padding: 1vw;
+
+}
+
+/*first ul to be float left*/
+.feature ul.first {
+    float: left;
+    list-style-type: none
+}
+
+/*second ul to be float right*/
+.feature ul.second {
+    float: right;
+    list-style-type: none;
+    margin-right: 2%;
+}
+
+/* set li to be inline block when screen size narrowed down to 900px */
+@media only screen and (max-width: 900px) {
+    .feature li {
+        /*                float: left;*/
+        display: inline-block;
+        /*                display: none;*/
+    }
+}

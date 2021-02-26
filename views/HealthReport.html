@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Health Report</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="corona Report">
+        <meta name="keywords" content="covid-19,corona,health,report">
+        <meta name="author" content="SmitShah">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/healthReportScript.js"></script>
+        <link rel="stylesheet" href="../stylesheet/healthReport.css"/>
+    </head>
+    <body>
+        <header><h1 class="mainHeading">Health Report</h1></header>
+        <div class="mainDiv">
+            <header><h1 id="name"></h1></header>
+            
+            <div class="grid">
+                <div class="child">
+                <label><b>Date:</b></label><span id="date"/>
+                </div>
+                <div class="child">
+                    <label><b>Age:</b></label><span id="age"/>
+                </div>
+                <div class="child">
+                    <label><b>sex:</b></label><span id="gender"/>
+                </div>
+            </div>
+            
+            <h2>Condition:<span id="condition"></span></h2>
+            <p  id="description"></p>
+            <a href="assessment.html" style="position: absolute; bottom: 1%;left: 40%;right: 40%;color: bisque"> Go Back to self-Assessment</a>
+        </div>
+    </body>
+</html>

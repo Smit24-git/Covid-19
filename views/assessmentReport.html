@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../stylesheet/styles.css"/>
+        <title>Assessment Report</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="corona Assessment report">
+        <meta name="keywords" content="covid-19,corona,assessment report">
+        <meta name="author" content="SmitShah">
+
+       <link rel="stylesheet" href="../stylesheet/assessmentReport.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script>
+        $(document).ready(function(){
+//            $("td").on("click",function(e){
+//                //console.log("clicked"+e.result);
+//            });
+            
+			fetch("https://aiproject001.000webhostapp.com/tempGetfromDatabase.php")
+            .then(response=>response.json())
+            .then(data =>{
+                console.log(data);
+                for(var i=0;i<data.length;i++){
+                    var person=data[i];
+                    var date1=new Date(person.personalDetails.bdate);
+                    var date2=new Date();
+                    var diffTime = Math.abs(date2 - date1);
+                    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+                    var age=Math.floor(diffDays/365);
+                    var condition="";
+                    if(person.severe.length>0){
+                        condition="risky";
+                    }else if(person.mild.length>0){
+                        condition="mild";
+                    }else if(person.normal.length>0){
+                        if(person.normal.length==0 && ( person.travel==="No" && person.care==="No" && person.contact==="No")){
+                            condition = "Safe";
+                            
+
+                        }else if(person.normal.length==0 && ( person.travel==="Yes" || person.care==="Yes" || person.contact==="Yes")){
+                            condition = "normal";
+                            
+                        }else if(person.normal.length>=1 && ( person.travel==="Yes" || person.care==="Yes" || person.contact==="Yes")){
+                            condition = "risky";
+                            
+                        }else{
+                            condition = "normal";
+                        }
+                    }else{
+                        condition="safe";
+                    }
+                    
+                    $("table").append("<tr><td>"+person.personalDetails.name+"</td><td>"+age+"</td><td>"+condition+"</td></tr>");
+                    
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <h1>Assessment Report</h1>
+        <table>
+            <tr class="tablehead">
+                <th>Name</th>
+                <th>age</th>
+                <th>condition</th>
+<!--
+                <th>Name</th>
+                <th>Name</th>
+-->
+            </tr>
+            
+        </table>
+        
+        <footer style="position: absolute;bottom: 0;right: 0;left: 0;">
+            <a href="assessment.html" style="color: antiquewhite">Go back to self assessment</a>
+            <p>Thanks for visiting</p>
+        </footer>
+    </body>
+    
+</html>
